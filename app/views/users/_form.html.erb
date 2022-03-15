@@ -3,13 +3,19 @@
         <%= f.label :username %>
         <%= f.text_field :username, placeholder:"Enter a username" %> 
     </div>
+    <br>
     <div>
         <%= f.label :email %>
         <%= f.email_field :email, placeholder:"Enter a email address" %> 
     </div>
+    <br>
     <div>
         <%= f.label :password %>
         <%= f.password_field :password, placeholder:"Enter a password" %> 
     </div>
+    <div>
+        <%= f.submit "Sign up" %>
+    </div>
+    
 <%end%>
     
