@@ -1,6 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Articles</h1>
-
+<div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+</div>
 <%= render 'article' %>
 <%= link_to "New article", new_article_path %>

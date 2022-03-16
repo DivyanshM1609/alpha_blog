@@ -1,0 +1,19 @@
+<h1>Alpha Bloggers</h1>
+
+<div class="flickr_pagination">
+    <%= will_paginate @users, :container => false %>
+</div>
+<div id="articles">
+<% @users.each do |user| %>
+    
+    <p><strong>Username : </strong><%=user.username%></p>
+    <%= link_to gravatar_for(user), user%>
+    <p><%= user.articles.count %> articles </p>
+    <p>
+        <%= link_to "View Profile", user %> | 
+        <%= link_to "Edit Profile", edit_user_path(user) %> 
+    </p>
+    <p><small>Joined <%= time_ago_in_words(user.created_at) %> ago</small></p>
+    <hr>
+<% end %>
+</div>      
