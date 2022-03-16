@@ -1,5 +1,14 @@
 
+<div id="articles">
+<% @articles.each do |article| %>
+    
+    <p><strong>Title : </strong><%=article.title%></p>
+    <p><strong>Description : </strong><%=article.description%></p>
+    <p>By : <%= article.user.username%></p>
+    <p>
+        <%= link_to "Show this article", article %>
+    </p>
+    <hr>
+<% end %>
+</div>
 
-<p><strong>Title : </strong><%=article.title%></p>
-<p><strong>Description : </strong><%=article.description%></p>
-<p>By : <%= article.user.username%></p>
