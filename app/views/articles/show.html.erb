@@ -13,9 +13,11 @@
               <h5 class="card-title"></strong><%= link_to @article.title, @article, style:"text-decoration:none"%></h5>
               <p class="card-text"><%=truncate(@article.description,length:100)%></p>
               <p>
-              <%= button_to "Delete", article_path(@article), form: {style: 'display:inline-block;'}, class:"btn btn-outline-danger", method: :delete%>
+              <% if logged_in? && @article.user==current_user %>
+                <%= button_to "Delete", article_path(@article), form: {style: 'display:inline-block;'}, class:"btn btn-outline-danger", method: :delete%>
 
-              <%= link_to "Edit", edit_article_path(@article), class:"btn btn-outline-info" %>
+                <%= link_to "Edit", edit_article_path(@article), class:"btn btn-outline-info" %>
+              <%end%>  
             </div>
             <div class="card-footer text-muted">
               <small>Posted <%= time_ago_in_words(@article.created_at) %> ago</small>

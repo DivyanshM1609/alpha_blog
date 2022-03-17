@@ -5,8 +5,16 @@
     <div class="card-img-overlay">
     <div class="card-body text-center" style="align-items:center">
         <h2 class="card-title text-light">Alpha Blog</h2>
-        <h3 class="card-text text-light mt-4">Alpha Blog is a platform where you can add articles, and share it with the world.</h3>
-        <%= link_to "Signup", signup_path, class:"btn btn-primary btn-lg mt-5" %> 
+        <h3 class="card-text text-light mt-4">Alpha Blog is a platform where you can add articles, and share it with the world. </h3>
+
+        <h4 class="text-light">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</h4>
+        <% if !logged_in? %> 
+            <%= link_to "Signup", signup_path, class:"btn btn-primary btn-lg mt-5" %> 
+            <%= link_to "Login", login_path, class:"btn btn-warning btn-lg mt-5" %> 
+        <% else %>
+            <%= link_to "Articles", articles_path, class:"btn btn-primary btn-lg mt-5"%>
+        <%end%>
+
     </div>
     </div>
 </div>

@@ -3,7 +3,9 @@ class UsersController < ApplicationController
         @user=User.new
     end
     def create 
-        @user = User.new(user_params)
+        @user = User.new(params.require(:user).permit(:username, :email, :password))
+        @user.save
+        session[:user_id] = @user.id
         if @user.save
             redirect_to articles_path
         else
