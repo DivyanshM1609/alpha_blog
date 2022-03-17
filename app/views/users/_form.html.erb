@@ -1,21 +1,37 @@
-<%= form_with(model:@user, local:true) do |f| %>
-    <div>
-        <%= f.label :username %>
-        <%= f.text_field :username, placeholder:"Enter a username" %> 
+
+<div class="container">
+<div class="row justify-content-center">
+    <div class="col-10">
+    <%= render 'shared/errors', obj:@user %>
+      <%= form_with(model: @user, local:true, class:'shadow-sm p-3 mb-5 bg-secondary rounded') do |f| %>
+        <div class="form-group row">
+            <%= f.label :username, class:'col-2 col-form-label text-light'%>
+            <div class="col-10">
+              <%= f.text_field :username, class:'form-control shadow-sm mb-2 rounded', placeholder:'Enter Username' %>
+            </div>
+        </div>
+        <div class="form-group row mt-4">
+            <%= f.label :email, class:'col-2 col-form-label text-light'%>
+            <div class="col-10">
+              <%= f.email_field :email, class:'form-control shadow-sm mb-2 rounded', placeholder:'Enter Email' %>
+            </div>
+        </div>
+        <div class="form-group row mt-4">
+            <%= f.label :password, class:'col-2 col-form-label text-light'%>
+            <div class="col-10">
+              <%= f.password_field :password, class:'form-control shadow-sm mb-2 rounded', placeholder:'Enter Password' %>
+            </div>
+        </div>
+        <div class="form-group row mt-4 justify-content-center">
+          <%= f.submit class:"col-3 btn btn-primary btn-large " %>
+        </div>
+      <% end %>
     </div>
-    <br>
-    <div>
-        <%= f.label :email %>
-        <%= f.email_field :email, placeholder:"Enter a email address" %> 
-    </div>
-    <br>
-    <div>
-        <%= f.label :password %>
-        <%= f.password_field :password, placeholder:"Enter a password" %> 
-    </div>
-    <div>
-        <%= f.submit(@user.new_record? ? "Sign up": "Update user") %>
-    </div>
-    
-<%end%>
+  <br>
+</div>
+</div>
+
+<div class="text-center mt-4">
+      <%= link_to 'Back to users', users_path, class:'btn btn-primary' %>
+</div>
     
