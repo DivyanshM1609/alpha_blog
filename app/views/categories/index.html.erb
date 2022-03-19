@@ -1,0 +1,28 @@
+<h1 class="text-center">All Categories</h1>
+
+<div class="flickr_pagination mt-4">
+    <%= will_paginate @categories, :container => false %>
+</div>
+<div id="categories">
+    
+    <% @categories.each do |category| %>
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-4 mt-4">
+                    <div class="card text-center shadow-sm mb-5 bg-white rounded">
+                        <div class="card-body">
+                            <h5 class="card-title"></strong><%= link_to category.name, category_path(category), style:"text-decoration:none"%></h5>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <small>Posted <%= time_ago_in_words(category.created_at) %> ago</small>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <% end %>
+</div>
+
