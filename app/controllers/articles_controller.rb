@@ -21,7 +21,8 @@ class ArticlesController < ApplicationController
 
   # POST /articles or /articles.json
   def create
-    @article = Article.new(params.require(:article).permit(:title, :description))
+    @article = Article.new(params.require(:article).permit(:title, :description, category_ids:[]))
+    p params[:category_ids]
     @article.user=current_user
     if @article.save
        flash[:notice]="Article was created successfully"
@@ -34,7 +35,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1 or /articles/1.json
   def update
     @article = Article.find(params[:id])
-    if @article.update(params.require(:article).permit(:title, :description))
+    if @article.update(params.require(:article).permit(:title, :description, category_ids:[]))
        flash[:notice]="Article was edited successfully"
        redirect_to @article
     else

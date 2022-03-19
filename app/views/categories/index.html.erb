@@ -12,6 +12,7 @@
                     <div class="card text-center shadow-sm mb-5 bg-white rounded">
                         <div class="card-body">
                             <h5 class="card-title"></strong><%= link_to category.name, category_path(category), style:"text-decoration:none"%></h5>
+                            <p><%= category.articles.count %> articles<p>
                         </div>
                         <div class="card-footer text-muted">
                             <small>Posted <%= time_ago_in_words(category.created_at) %> ago</small>
