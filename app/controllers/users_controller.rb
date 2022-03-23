@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_user, only:[:show, :edit, :destroy]
+    before_action :set_user, only:[:show, :edit, :destroy, :update]
     # before_action :require_user, only:[:edit, :update]
     # before_action :require_same_user, only:[:edit, :update, :destroy]
 
@@ -21,15 +21,15 @@ class UsersController < ApplicationController
     # def edit
     # end
 
-    # def update
-    #     if(@user.update(params.require(:user).permit(:username, :email, :password)))
-    #         flash[:notice]="User was edited successfully"
-    #         redirect_to @user
-    #     else
-    #         render 'edit'
-    #     end
+    def update
+        if(@user.update(params.require(:user).permit(:username, :email, :password)))
+            flash[:notice]="User was edited successfully"
+            redirect_to @user
+        else
+            render 'edit'
+        end
 
-    # end
+    end
     def show
         @articles = @user.articles
     end

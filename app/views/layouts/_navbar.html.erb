@@ -2,6 +2,7 @@
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
 <div class="container-fluid">
     <a class="navbar-brand text-light" href="/">Alpha Blog</a>
+    
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,7 +28,7 @@
             <% if user_signed_in? %>
                 <% if !current_user.admin?%>
                 <li class="nav-item">
-                    <%= link_to current_user.email,user_path(current_user), class:"nav-link text-light active" %>
+                    <%= link_to current_user.username,user_path(current_user), class:"nav-link text-light active" %>
                 </li>
                 <%else%>
                     <li class="nav-item">
