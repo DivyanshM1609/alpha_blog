@@ -17,7 +17,7 @@
                         <div class="card-body">
                             <%= link_to gravatar_for(user), user%>
                             <p><%= user.articles.count %> articles<p>
-                            <% if logged_in? %>
+                            <% if user_signed_in? %>
                                 <% if current_user.admin? %>
                                     <%= button_to "Delete Profile", user_path(user), form: {style: 'display:inline-block;'}, class:"btn btn-outline-danger", method: :delete%>
                                 <% end%>
